@@ -10,9 +10,6 @@
 	<!-- WP HEAD -->
 	<?php wp_head(); ?>
 
-	<!-- FONT -->
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
 	<!-- CSS -->
   	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/src/style.min.css">
 
