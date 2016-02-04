@@ -1,9 +1,6 @@
 {
   "name": "my_package",
   "version": "1.0.0",
-  "dependencies": {
-    "my_dep": "^1.0.0"
-  },
   "devDependencies": {
     "gulp-util": "^3.0.7",
     "gulp-sass": "^2.1.1",
