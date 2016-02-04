@@ -27,7 +27,7 @@
 	<!-- NAV         -->
 	<!-- ——————————— -->
 
-	<nav>
+	<nav class="main-nav">
 	
 		<?php 
 				
