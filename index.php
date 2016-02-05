@@ -1,5 +1,5 @@
 <?php get_header() ?>
-
+	<p class="icon icon-ic_gesture_48px">e</p>
 	<main>
 		
 		<?php
