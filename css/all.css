@@ -39,7 +39,10 @@
   content: "\E005";
 }
 body {
-  background-color: #4D4D4D;
-  background-image: url("test.png");
+  background-image: url("./test.png");
   color: blue;
+}
+
+.test {
+  font-size: 25;
 }

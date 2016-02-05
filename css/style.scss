@@ -1,7 +1,15 @@
 $theme-color: #4D4D4D;
 
 body {
-	background-color: $theme-color;
-	background-image: url("test.png");
+
+	background-image: url("./test.png");
 	color:blue;
+}
+
+.test {
+	font-size:27;
+	 opacity: .5;
+    box-sizing: border-box;
+    transform: scale(.5);
+    display: flex;
 }

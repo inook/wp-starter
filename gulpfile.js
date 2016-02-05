@@ -4,11 +4,13 @@
 var gulp    = require('gulp'),
     gutil   = require('gulp-util'),
     rename  = require('gulp-rename'),
+    runSequence = require('run-sequence'),
     
     // CSS
     sass    = require('gulp-sass'),
     concatCss = require('gulp-concat-css'),
-    cssmin = require('gulp-cssmin'),
+    cssnano = require('gulp-cssnano'),
+    autoprefixer = require('gulp-autoprefixer'),
 
     // JS
     uglify  = require('gulp-uglify'),
@@ -18,54 +20,43 @@ var gulp    = require('gulp'),
     iconfont = require('gulp-iconfont'),
     iconfontCss = require('gulp-iconfont-css');
 
+//gulp.watch('./css/*.scss', 'default');
+
+gulp.task('default', function(callback) {
+  runSequence('sass',
+              'concat-css',
+              ['glyphicons', 'compress-js']
+              );
+});
+
 // ————————————————————————————————
 // CSS
 // ————————————————————————————————
 
-  // SASS
-  // ————————————————
+  gulp.task('sass', function () {
 
-  gulp.task('sass', ['concat'], function () {
-    
-      gulp.src('./css/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(gulp.dest('./css/'));
-      
-      gulp.src(['css/icons.css', 'css/style.css'])
-        .pipe(concatCss("./all.css", {rebaseUrls:false}))
-        .pipe(gulp.dest('./css/'));
+  gutil.log('— sass');
+    return gulp.src('./css/*.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('./css/'));
+  });
 
-      gulp.src('./css/all.css')
-      .pipe(cssmin("./css/all.css", {rebaseUrls:false}))
-      .pipe(gulp.dest('./src/'));
-
-  });
-
-
-  gulp.task('concat', ['min-css'], function () {
-
-    //gutil.log('CONCAT');
-    // gulp.src('./css/*.css')
-    //   .pipe(concatCss("./all.css", {rebaseUrls:false}))
-    //   .pipe(gulp.dest('./css/'));
-
-  });
-
-  gulp.task('min-css', function () {
-
-    // gutil.log('MIN');
-    // gulp.src('./css/all.css')
-    //   .pipe(cssmin("./css/all.css", {rebaseUrls:false}))
-    //   .pipe(gulp.dest('./src/'));
-
+  gulp.task('concat-css', function () {
+    gutil.log('— concat');
+    return gulp.src(['css/icons.css', 'css/style.css'])
+    .pipe(concatCss("./all.css", {rebaseUrls:false}))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(cssnano())
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('./src/'));
   });
 
 // ————————————————————————————————
 // JAVACRIPT
 // ————————————————————————————————
-
-  // CONCAT JS
-  // ————————————————
 
   gulp.task('compress-js', function () {
     gulp.src('./js/*.js')
@@ -96,8 +87,10 @@ gulp.task('glyphicons', function() {
 // WATCH
 // ————————————————
 
-gulp.watch('./css/*.scss', ['sass']);
-gulp.watch('./js/*.js', ['compress-js']);
+//
+gulp.watch('./js/*.js', 'sass');
 
-gulp.task('default', ['glyphicons', 'sass', 'compress-js']);
+//gulp.task('default', ['glyphicons', 'compress-css','concat-css','nano-css', 'compress-js']);
+
+gulp.task('test', ['sass']);
 
