@@ -1,5 +1,13 @@
 <?php
 
+// INCLUDE
+// -------------------------------------------------
+
+	// Customize theme
+	include('inc/customize.php');
+
+
+
 // ADMIN BAR
 // hide / show admin bar
 // -------------------------------------------------

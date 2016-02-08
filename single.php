@@ -14,18 +14,13 @@
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post(); ?>
 				
-				<div class="column large-4 medium-6 small-12">
+				<div class="column large-12 medium-12 small-12">
 				
 					<h2>
 						<?php the_title(); ?>
 					</h2>
 
-					<?php the_excerpt(); ?>
-
-					<a href="<?php the_permalink(); ?>" class="btn btn--solid">
-						Lire la suite
-					</a>
-
+					<?php the_content(); ?>
 
 				</div>
 		

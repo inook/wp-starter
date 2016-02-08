@@ -23,12 +23,17 @@
 <body <?php body_class();?> >
 	
 	
+
+	<div id="main">
+
 	<!-- ——————————— -->
 	<!-- NAV         -->
 	<!-- ——————————— -->
 
-	<nav class="main-nav">
-	
+	<nav class="row">
+		
+		<div class="column large-12">
+			
 		<?php 
 				
 			$args = array(
@@ -40,20 +45,22 @@
 		
 		?>
 
+		</div>
+
 	</nav>
 
 
 	<!-- ——————————— -->
 	<!-- BREADCRUMB  -->
 	<!-- ——————————— -->
+		
+	<div class="row">
+		<div class="column large-12">
+			<?php get_template_part( 'template-parts/breadcrumb'); ?>
+		</div>
+	</div>
 
-	<?php
-	if ( function_exists('yoast_breadcrumb') ) : 
-	
-		yoast_breadcrumb('<p id="breadcrumbs">','</p>');
-	
-	endif;
-	?>
+
 	
 
 	
