@@ -120,7 +120,7 @@
     // CSS
     .pipe(iconfontCss({
       fontName: 'icons',
-      targetPath: './../css/icons.scss',
+      targetPath: './../css/_icons.scss',
       fontPath: '../fonts/'
     }))
 

@@ -1,0 +1,37 @@
+
+
+/* BREADCRUMB */
+/* ————————————————————————— */
+
+.breadcrumb {
+	
+	margin:0;
+	padding:rem-calc(20 0);
+	list-style-type:none;
+	font-size:rem-calc(12);
+	border-top:1px solid rgba(#000, 0.1);
+	border-bottom:1px solid rgba(#000, 0.1);
+	
+	& li {
+		display:inline-block;
+		padding:rem-calc(0 15);
+		border-left:1px solid #CCC;
+	}
+
+	& li:first-child {
+		border:0;
+		padding:rem-calc(0 15 0 0);
+	}
+	
+	/* Current */
+	& li.current {
+		color:$theme-color;
+	}
+
+	/* Link */
+	& li a {
+		color:#000;
+		text-decoration:none;
+		border-bottom:1px solid rgba(#000, 0.3);
+	}
+}

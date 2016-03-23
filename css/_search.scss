@@ -1,0 +1,26 @@
+
+
+/* RECHERCHE */
+/* ————————————————————————— */
+
+.search-form {
+	position:relative;
+
+
+	& .search-field {
+		padding:rem-calc(22 40 22 15);
+	}
+
+	& .search-submit {
+		position:absolute;
+		right:0;
+		top:0;
+		color:#000;
+		padding:rem-calc(10 15);
+		font-size:1.4em;
+		background-color: transparent;
+		height:100%;
+		border:0;
+	}
+
+}
